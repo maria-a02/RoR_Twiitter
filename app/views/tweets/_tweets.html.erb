@@ -6,6 +6,7 @@
         </div>
         <div class="card-body bg-info d-inline">
             <h4 class="card-header bg-dark font-weight-bold"><%= t.user.name%></h4>
+            <p class="card-text"><%=link_to time_ago_in_words(t.created_at), tweets_path %> ago</p>
             <p class="card-text"><%= t.content %></p>
         </div>
         <div class="card-footer">

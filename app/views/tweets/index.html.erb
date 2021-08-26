@@ -1,5 +1,8 @@
 <div class="container">
+    <% if user_signed_in? %>
     <%= render "form"%>
+    <%= render "tweets"%>
+    <% else %>
+    <%= render "tweets"%>
+    <% end %>
 </div>
-
-<%= render "tweets"%>

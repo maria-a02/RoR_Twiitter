@@ -1,44 +1,42 @@
 <% @tweets.each do |t| %>
-<div class="container">
-    <div class="row">
-        <div class="card bg-info col-md-4 p-3 mt-5" style="width: 18rem;">
-            <img class="card-img-top rounded-circle" src="<%= t.user.photo%>" alt="Photo">
-            <h4 class="card-header font-weight-bold"><%= t.user.name%></h4>
+<div class="card m-3">
+    <div class="row bg-dark">
+        <div class="container text-align center col-md-4" style="max-width: 200px">
+            <img class="rounded-circle" style="max-width: 100px" src="<%= t.user.photo%>" alt="Photo">
+        </div>
+        <div class="card-body bg-info d-inline">
+            <h4 class="card-header bg-dark font-weight-bold"><%= t.user.name%></h4>
             <p class="card-text"><%= t.content %></p>
-
-            <span>
+        </div>
+        <div class="card-footer">
             <%= link_to retweet_path(t.id), method: :post do%>    
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrows-down-up" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <line x1="17" y1="3" x2="17" y2="21" />
-                <path d="M10 18l-3 3l-3 -3" />
-                <line x1="7" y1="21" x2="7" y2="3" />
-                <path d="M20 6l-3 -3l-3 3" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrows-down-up" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="17" y1="3" x2="17" y2="21" />
+                    <path d="M10 18l-3 3l-3 -3" />
+                    <line x1="7" y1="21" x2="7" y2="3" />
+                    <path d="M20 6l-3 -3l-3 3" />
+                </svg>
+                    <span><%= t.retweets.count %></span>
+                <% end %>        
+        <%if @user_likes.include? t.id %>
+            <%= link_to dislike_path(t.id), method: :delete do %> 
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart-broken" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6f32be" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                    <path d="M12 7l-2 4l4 3l-2 4v3" />
                 </svg>
                 <% end %>
-            </span>
-            <span><%= t.retweets.count %></span>
-            
-            <span>
-            <%if @user_likes.include? t.id %>
-            <%= link_to dislike_path(t.id), method: :delete do %> 
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart-broken" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6f32be" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                <path d="M12 7l-2 4l4 3l-2 4v3" />
-                </svg>
-            <% end %>
-            <% else %>
+        <% else %>
             <%= link_to like_path(t.id), method: :post do %> 
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
                 </svg>
-            <% end %>
-            <% end %>
-            </span>
-            <span><%= t.likes.count %></span>
-        </div>
+                    <span><%= t.likes.count %></span>
+                <% end %>
+        <% end %>
+        </div>    
     </div>
-</div>  
+</div> 
 <% end %>

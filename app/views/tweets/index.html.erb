@@ -6,3 +6,9 @@
     <%= render "tweets"%>
     <% end %>
 </div>
+
+<div>
+    <%=paginate @tweets%>
+    <%= link_to_previous_page @tweets, 'Previous tweets'%>
+    <%= link_to_next_page @tweets, 'Show more tweets'%>
+</div>

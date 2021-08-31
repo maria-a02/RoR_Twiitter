@@ -1,0 +1,18 @@
+<div class="text-light card m-3">
+    <div class="row bg-dark">
+        <div class="card-body bg-info d-inline">
+            <%= t.user.photo%>
+            <h4 class="card-header bg-dark font-weight-bold"><%= t.user.name %></h4>
+            <p class="card-text"><%= t.content %></p>
+            <p class="card-text"><%= t.created_at %></p>
+        </div>
+        <h4>Likes received</h4>
+        <div class="row">
+            <% @tweet_likes.each do |lk| %>
+            <div>
+                <%= lk.user.photo %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>

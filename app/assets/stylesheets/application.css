@@ -23,3 +23,11 @@ html, body, .view {
 .navbar-brand {
     color: #eee !important;
 }
+
+.navbar, .card-body {
+    background-color: rgb(3, 98, 161) !important;
+}
+
+a {
+    color: #eee !important;
+}

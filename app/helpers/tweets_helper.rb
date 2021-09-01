@@ -1,6 +1,6 @@
 module TweetsHelper
     def hashtag(content)
-        format_content = content.split("")
+        format_content = content.split(" ")
         tag = []
         format_content.each do |t|
             if t.start_with?("#")

@@ -1,12 +1,12 @@
 <% @tweets.each do |t| %>
 <div class="text-light card m-3">
     <div class="row bg-dark">
-        <div class="container text-align center col-md-4" style="max-width: 200px">
+        <div class="container text-align col-md-4">
             <img class="rounded-circle" style="max-width: 100px" src="<%= t.user.photo%>" alt="Photo">
         </div>
         <div class="card-body bg-info d-inline">
             <h4 class="card-header bg-dark font-weight-bold"><%= t.user.name%></h4>
-            <p class="card-text"><%= t.content %></p>
+            <p class="card-text"><%= hashtag(t.content) %></p>
             <%= link_to tweet_detail_path(t.id) do %>
             <%= distance_of_time_in_words(Time.now, t.created_at) %>
         </div>

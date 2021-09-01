@@ -18,6 +18,7 @@ class TweetsController < ApplicationController
     @tweets = Tweet.eager_load(:user, :likes).order(created_at: :desc).page params[:page]
     @tweet = Tweet.new(content: params[:tweet][:content])
     @tweet.user = current_user
+    @user_likes = Like.eager_load(:user, :tweet).where(user: current_user).pluck(:tweet_id)
 
     respond_to do |format|
       if @tweet.save

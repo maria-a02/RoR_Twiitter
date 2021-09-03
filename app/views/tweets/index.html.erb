@@ -1,5 +1,6 @@
 <div class="container">
     <% if user_signed_in? %>
+    <%= render "users_to_follow"%>
     <%= render "form"%>
     <%= render "tweets"%>
     <% else %>

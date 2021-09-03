@@ -2,6 +2,8 @@ class TweetsController < ApplicationController
   def index
     if params[:q]
       @tweets = Tweet.where('content LIKE ?', "%#{params[:q]}%").order(created_at: :desc).page params[:page]
+    elsif user_signed_in?
+      @tweets = Tweet.tweets_for_me(current_user).or(current_user.tweets).order(created_at: :desc).page params[:page]
     else
       @tweets = Tweet.eager_load(:user, :likes).order(created_at: :desc).page params[:page]
     end

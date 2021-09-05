@@ -1,18 +1,21 @@
 <div class="text-light card m-3">
     <div class="row bg-dark">
         <div class="card-body bg-info d-inline">
-            <%= @tweet.user.photo%>
+            <%= image_tag @tweet.user.photo, class: "imgsize"%>
             <h4 class="card-header bg-dark font-weight-bold"><%= @tweet.user.name %></h4>
             <p class="card-text"><%= @tweet.content %></p>
-            <p class="card-text"><%= @tweet.created_at %></p>
+            <p class="card-text"><%= distance_of_time_in_words(Time.now, @tweet.created_at) %></p>
         </div>
-        <p>Likes received</p>
         <div class="row">
-            <% @tweet_likes.each do |lk| %>
+            <% @tweet_likes.each do |like| %>
             <div>
-                <%= lk.user.photo %>
+            <p>Likes received</p>
+                <%= image_tag like.user.photo, class: "imgsize"%>
+                <%= like.user.name %>
             </div>
             <% end %>
         </div>
     </div>
 </div>
+
+<%= link_to 'Go Back', root_path, class: "btn btn-success" %>

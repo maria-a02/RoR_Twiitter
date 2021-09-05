@@ -5,5 +5,6 @@ class Tweet < ApplicationRecord
     belongs_to :original_tweet, class_name: "Tweet", foreign_key: "tweet_id", optional: true
     validates :content, presence: true
 
+    paginates_per 5
     scope :tweets_for_me, -> (user) { where(:user_id => user.followers.pluck(:follower_id))}
 end

@@ -1,10 +1,10 @@
-<div class="card-body"> 
+<div> 
     <p>Users to follow</p>
-        <div class="align-center"> 
+        <div class="row"> 
             <% current_user.users_to_follow.each do |user| %>
                 <% if user.id != current_user.id %>
-                    <%= link_to follow_path(user.id), class:"card text-white bg-dark", method: :post do%>
-                    <%= image_tag user.photo, width: "100px"%>
+                    <%= link_to follow_path(user.id), class:"card text-white bgcard", method: :post do%>
+                    <%= image_tag user.photo, class: "imgsize"%>
                     <%= user.name %>
                     <% end %>
                 <% end %>

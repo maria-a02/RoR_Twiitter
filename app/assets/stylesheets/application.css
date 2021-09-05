@@ -29,6 +29,17 @@ html, body, .view {
     background-color: rgb(3, 98, 161) !important;
 }
 
-a {
+a, .letter {
     color: #eee !important;
+}
+
+.imgsize {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    padding: 10px;
+}
+
+.bgcard {
+        background-color: rgb(3, 98, 161);
 }

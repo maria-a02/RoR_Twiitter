@@ -1,10 +1,8 @@
 <% @tweets.each do |t| %>
-<div class="text-light card m-3">
+<div class="letter m-3 p-3">
     <div class="row bg-dark">
-        <div class="container text-align col-md-4">
-            <img class="rounded-circle" style="max-width: 100px" src="<%= t.user.photo%>" alt="Photo">
-        </div>
-        <div class="card-body bg-info d-inline">
+        <img class="imgsize" src="<%= t.user.photo%>" alt="Photo">
+        <div class="card-body bg-info m-3 p-3">
             <h4 class="card-header bg-dark font-weight-bold"><%= t.user.name%></h4>
             <p class="card-text"><%= hashtag(t.content) %></p>
             <%= link_to tweet_detail_path(t.id) do %>
@@ -40,8 +38,9 @@
         <span><%= t.likes.count %></span>
         </div> 
         <% if t.tweet_id.present? %>
-            <div class="container">
+            <div class="container p-3">
                 <h6>Retweeted from:</h6>
+                <%= image_tag t.original_tweet.user.photo, class: "imgsize"%>
                 <strong><%= t.original_tweet.user.name %></strong>
                 <% end %>
             </div>

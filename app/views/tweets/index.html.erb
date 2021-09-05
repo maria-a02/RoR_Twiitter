@@ -3,13 +3,13 @@
     <%= render "users_to_follow"%>
     <%= render "form"%>
     <%= render "tweets"%>
-    <% else %>
-    <%= render "tweets"%>
-    <% end %>
-</div>
-
-<div>
-    <%=paginate @tweets%>
+    <div>
+    <%= paginate @tweets%>
     <%= link_to_previous_page @tweets, 'Previous tweets'%>
     <%= link_to_next_page @tweets, 'Show more tweets'%>
+    </div>
+    <% else %>
+    <%= render "tweets"%>
+    <%= link_to 'Show more tweets', new_user_session_path %>
+    <% end %>
 </div>

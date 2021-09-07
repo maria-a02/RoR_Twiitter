@@ -24,13 +24,12 @@ http_basic_authenticate_with name: "admin22", password: "123456"
     end
   
     def create
-	  @tweet = Tweet.create(content: params[:content])
-    
-    if @tweet.save
-            render json: @tweet, status: :created
-        else
-            render json: @tweet.errors, status: :unprocessable_entity
-        end
+    @tweet = Tweet.create(content: params[:content])
+      if @tweet.save
+      render json: @tweet, status: :created
+      else
+      render json: @tweet.errors, status: :unprocessable_entity
+      end
     end
 
 end

@@ -18,3 +18,8 @@ gem 'kaminari'
 Email: admin22@example.com
 Password: 123456
 ```
+**Show last 50 tweets**
+http://localhost:3000/api/v1/news
+
+**Show tweets by date**
+http://localhost:3000/api/v1/bydate/2021-09-06/2021-09-07

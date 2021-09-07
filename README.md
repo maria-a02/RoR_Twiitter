@@ -9,6 +9,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails' 
 gem 'devise'
 gem 'kaminari'
+gem 'activeadmin'
 ```
 # Heroku
 **App in Heroku:** https://dltwiitter1.herokuapp.com/

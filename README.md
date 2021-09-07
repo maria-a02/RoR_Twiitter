@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'kaminari'
 ```
-
+# Heroku
 **App in Heroku:** https://dltwiitter1.herokuapp.com/
 
 **Admin login:** https://dltwiitter1.herokuapp.com/admin/login
@@ -18,6 +18,8 @@ gem 'kaminari'
 Email: admin22@example.com
 Password: 123456
 ```
+
+# API
 **Show last 50 tweets**
 http://localhost:3000/api/v1/news
 

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'news', to: 'tweet#tweets_last50'
       get 'bydate/:date1/:date2', to: 'tweet#tweets_bydate'
+      post 'create', to: 'tweet#create'
     end
   end
   devise_for :admin_users, ActiveAdmin::Devise.config

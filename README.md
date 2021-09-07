@@ -21,8 +21,17 @@ Password: 123456
 ```
 
 # API
-**Show last 50 tweets**
+**Show last 50 tweets - GET**
 http://localhost:3000/api/v1/news
 
-**Show tweets by date**
+**Show tweets by date - GET**
 http://localhost:3000/api/v1/bydate/2021-09-06/2021-09-07
+
+**Create tweets - POST**
+http://localhost:3000/api/v1/create
+
+Authorization
+```
+Username: admin22
+Password: 123456
+```
